@@ -1,0 +1,7 @@
+{% if messages %}
+<ul class="messages">
+    {% for message in messages %}
+    <b style="color:red">{{ message }}</b>
+    {% endfor %}
+</ul>
+{% endif %}

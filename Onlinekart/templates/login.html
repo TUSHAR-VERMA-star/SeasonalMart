@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+<div class="container">
+    <div class="text-center mb-4">
+        <h2 class="section-title px-5"><span class="px-2">Login</span></h2>
+        {% include 'includes/messages.html' %}
+    </div>
+    <div class="text-center">
+        <div class="contact-form">
+            <div id="success"></div>
+            <form action="{% url 'login' %}" method="post"> {% csrf_token %}
+                <div class="control-group">
+                    <input type="email" class="form-control" id="email" name="email" placeholder="Your Email" required="required"
+                        data-validation-required-message="Please enter your email" />
+                    <p class="help-block text-danger"></p>
+                </div>
+                <div class="control-group">
+                    <input type="password" class="form-control" id="subject" name="password" placeholder="Your Password" required="required"
+                        data-validation-required-message="Please enter a Password" />
+                    <p class="help-block text-danger"></p>
+                </div>
+                <div class="control-group">
+                    <a href="{% url 'forgotPassword' %}" class="btn text-dark p-1" style="float:right;"><span style="color:red">Forget Password?</span></a>
+                </div>
+                <div>
+                    <button class="btn btn-primary py-2 px-4" type="submit" id="sendMessageButton">Login</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+
+{% endblock %}
